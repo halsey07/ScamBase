@@ -8,10 +8,11 @@ now = datetime.datetime.now()
 
 
 def menu(): 
-    print ("\n")
+    print ("="*60)
     print ("Welcome to the Scammer Database")
+    print ("="*60)
     print ("This program was made by OG HorizoN for the SSL Discord")
-    print ("\n")
+    print ("="*60)
     print ("Press 1 to store a scammer")
     print ("\n")
     print ("Press 2 to view the scammer list")
@@ -55,6 +56,7 @@ def add():
     conn.commit()
     print("\n")
     print("Scammer",company_name,"Added on",now)
+    print ("\n")
     menu()
 
 def view():
@@ -65,7 +67,9 @@ def view():
 
     for eachRow in rows:
         print("\nID:{0}\nCompany Name:{1}\nNumber:{2}\nETC Info:{3}\nDate:{4}".format(eachRow[0],eachRow[1],eachRow[2],eachRow[3],eachRow[4]))
-    time.sleep(2)
+    print("\n")
+    input("Press enter to return to menu ")
+    print ("\n")
     menu()
 
 def delete() :
@@ -74,8 +78,8 @@ def delete() :
     Id=input("Enter the ID of the scammer to delete ")
     c.execute("DELETE FROM ScamBase WHERE ID=?", (Id,))
     conn.commit()
-    time.sleep(5)
     print("Scammer",Id,"deleted from database")
+    print ("\n")
     menu()
 
 def install() :
